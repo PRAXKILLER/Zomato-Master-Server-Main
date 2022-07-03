@@ -43,7 +43,9 @@ app.use('/order', Orders);
 app.use('/review', Reviews);
 app.use('/user', User);
 
-app.listen(4000, () => {
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
     ConnectDB().then(() => {
         console.log("Server is running !!!")
     }).catch((error) => {
