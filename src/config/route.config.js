@@ -12,6 +12,7 @@ const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: "ZomatoApp"
 }
+console.log(options);
 
 export default (passport) => {
     passport.use(

@@ -23,6 +23,8 @@ import Orders from './API/Orders'
 import Reviews from './API/Reviews'
 import User from './API/User'
 
+var session = require('express-session')
+
 googleAuthConfig(passport);
 privateRouteConfig(passport);
 
@@ -31,7 +33,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(helmet());
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: 'ZomatoApp' 
+  }));
+
 app.use(passport.initialize());
+app.use(passport.session());
 
 // Application Routes
 app.use('/auth', Auth);
