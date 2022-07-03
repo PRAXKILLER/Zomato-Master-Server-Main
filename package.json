@@ -5,12 +5,14 @@
     "main": "index.js",
     "scripts": {
         "start": "babel-node index.js",
-        "dev": "nodemon --exec npm start"
+        "dev": "nodemon --exec babel-node index.js",
+        "build": "babel src -d build"
     },
     "author": "Prakhar Shrivastava",
     "license": "ISC",
     "dependencies": {
         "aws-sdk": "^2.1148.0",
+        "babel-cli": "^6.26.0",
         "bcryptjs": "^2.4.3",
         "cors": "^2.8.5",
         "dotenv": "^16.0.0",
